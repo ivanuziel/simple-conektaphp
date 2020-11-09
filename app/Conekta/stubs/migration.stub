@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddConektaCashierColumns extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('conekta_payments', function(Blueprint $table) {
+            $table->increments('id');
+            $table->morphs('bill');
+            $table->string('method');
+            $table->string('card_type', 30)->nullable();
+            $table->string('last_four', 4)->nullable();
+        });
+
+        Schema::table('user', function(Blueprint $table) {
+            $table->string('conekta_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        
+    }
+
+}
