@@ -21,7 +21,13 @@ $ php artisan migrate
 ```
 
 ## Estructura del Proyecto
-
+| Ruta | Descripción |
+| ------ | ------ |
+| app/Conekta/Billable | Trait aplicable sobre entidades que se pueden comprar (representa la orden de compra) |
+| app/Conekta/Customer | Trait aplicable sobre la entidad que representa al comprador |
+| app/Conekta/Payment | Clase que construye los objetos de Conekta para realizar el pago |
+| resources/js/components/ConektaCardPayment.vue | Componente de vue js para imprimir el formulario de pago con tarjeta, tokenizarla y hacer la petición al servidor |
+| resources/js/components/ConektaOxxoPayment.vue | Componente de vue js para hacer la petición de pago al servidor e imprimir el comprobante de pago |
 
 ## Notas del proyecto
 
